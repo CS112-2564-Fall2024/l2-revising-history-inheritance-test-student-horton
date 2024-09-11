@@ -39,21 +39,27 @@ public class HistoricalEvent {
         System.out.println(this.toString());
     }
 
-    public int compareTo(HistoricalEvent event)
-    {
-            if (this.date.precedes(event.date)) 
-            {
+    public boolean equals(Object other) {  
+        if (other instanceof HistoricalEvent) {
+            HistoricalEvent event = (HistoricalEvent) other;
+            return this.date.equals(event.date) && this.description.equals(event.description);
+        }
+
+        return false;
+    }
+
+    public int compareTo(Object other) {
+        if (other instanceof HistoricalEvent) {
+            HistoricalEvent event = (HistoricalEvent) other;
+            if (this.date.precedes(event.date)) {
                 return -1;
             }
-            if (this.date.equals(event.date)) 
-            {
+            if (this.date.equals(event.date)) {
                 return 0;
             }
 
             return 1;
-
+        }
+        return -1;
     }
-    
-    // todo: equals
-    // todo: compareTo
 }

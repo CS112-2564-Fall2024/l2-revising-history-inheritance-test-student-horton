@@ -40,6 +40,27 @@ public class RevisedEvent extends HistoricalEvent {
         return superString + '\n' + this.revisedDescription + '\n' + this.citation;
     }
 
+    public boolean equals(Object other) {
+        // we can't be equals with null
+        if (other == null) {
+            return false;
+        }
+
+        // we can't be equals if the super isn't equals
+        if (!super.equals(other)) {
+            return false;
+        }
+
+        // we can't be equals if this isn't the same type
+        if (!(other instanceof RevisedEvent)) {
+            return false;
+        }
+
+        // compare our specific information
+        RevisedEvent event = (RevisedEvent)other;
+
+        return this.revisedDescription.equals(event.revisedDescription) && this.citation.equals(event.citation);
+    }
 
 
     public void teach() {
