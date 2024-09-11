@@ -233,9 +233,7 @@ public class Date
 	{
 		return this.year;
 	}
-	
-	
-	
+
 	/********** OTHER REQUIRED METHODS **********/
 	@Override
 	public String toString()

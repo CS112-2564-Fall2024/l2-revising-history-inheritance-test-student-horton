@@ -39,7 +39,9 @@ public class HistoricalEvent {
         System.out.println(this.toString());
     }
 
-    public boolean equals(Object other) {  
+    public boolean equals(Object other) {
+        // since instanceof on null will return false, this is a convenient
+        // way to compare both for the same class AND for being a valid instance
         if (other instanceof HistoricalEvent) {
             HistoricalEvent event = (HistoricalEvent) other;
             return this.date.equals(event.date) && this.description.equals(event.description);
