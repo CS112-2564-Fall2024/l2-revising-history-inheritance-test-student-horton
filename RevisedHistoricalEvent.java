@@ -1,15 +1,15 @@
-public class RevisedEvent extends HistoricalEvent {
+public class RevisedHistoricalEvent extends HistoricalEvent {
     private String revisedDescription;
     private String citation;
 
-    public RevisedEvent() {
+    public RevisedHistoricalEvent() {
         super();
 
         this.revisedDescription = "None";
         this.citation = "None";
     }
 
-    public RevisedEvent(String description, Date date, String revisedDescription, String citation) {
+    public RevisedHistoricalEvent(String description, Date date, String revisedDescription, String citation) {
         super(description, date);
 
         this.revisedDescription = revisedDescription;
@@ -52,12 +52,12 @@ public class RevisedEvent extends HistoricalEvent {
         }
 
         // we can't be equals if this isn't the same type
-        if (!(other instanceof RevisedEvent)) {
+        if (!(other instanceof RevisedHistoricalEvent)) {
             return false;
         }
 
         // compare our specific information
-        RevisedEvent event = (RevisedEvent)other;
+        RevisedHistoricalEvent event = (RevisedHistoricalEvent)other;
 
         return this.revisedDescription.equals(event.revisedDescription) && this.citation.equals(event.citation);
     }
